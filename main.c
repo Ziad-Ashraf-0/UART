@@ -5,7 +5,7 @@
 #define BLUE 0x04
 #define GREEN 0x08
 #include "TM4C123GH6PM.h"
-#define BUFFER_LENGTH 32 
+#define BUFFER_LENGTH 100
 
 
 
@@ -65,19 +65,19 @@ void LCD_init(void);
 	}
 		
 	void getCommand(char *str, uint8_t maxLen){
-  	char c;
-		char b[80]={0};
+		char b[80];
 		int8_t i;
 		int8_t j;
 		
 		for (i = 0; i< maxLen; i ++){
-		  c = UART5_read();
-			b[i]=c;
+		  b[i]=UART5_read();
+			
 		
-		for(j=0;j<80;j++ ){
-		  LCD_data(b[i]);
-		}
+		
 	}
+		for(j=0;j<80;j++){
+		  LCD_data(b[j]);
+		}
 }
 	void printStr(char *str){	
 	   while(*str){
