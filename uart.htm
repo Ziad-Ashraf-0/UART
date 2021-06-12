@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\uart.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\uart.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Sat Jun 12 23:25:26 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Sat Jun 12 23:53:50 2021
 <BR><P>
-<H3>Maximum Stack Usage =        212 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        292 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 main &rArr; getCommand &rArr; LCD_data
 <P>
@@ -1141,8 +1141,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCommand
 </UL>
 
-<P><STRONG><a name="[80]"></a>getCommand</STRONG> (Thumb, 52 bytes, Stack size 100 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 108<LI>Call Chain = getCommand &rArr; LCD_data
+<P><STRONG><a name="[80]"></a>getCommand</STRONG> (Thumb, 84 bytes, Stack size 148 bytes, main.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 156<LI>Call Chain = getCommand &rArr; LCD_data
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_data
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_read
@@ -1180,8 +1180,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[76]"></a>main</STRONG> (Thumb, 64 bytes, Stack size 104 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 212<LI>Call Chain = main &rArr; getCommand &rArr; LCD_data
+<P><STRONG><a name="[76]"></a>main</STRONG> (Thumb, 64 bytes, Stack size 136 bytes, main.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 292<LI>Call Chain = main &rArr; getCommand &rArr; LCD_data
 </UL>
 <BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_init
