@@ -66,15 +66,19 @@ void LCD_init(void);
 		
 	void getCommand(char *str, uint8_t maxLen){
   	char c;
+		char b[80]={0};
 		int8_t i;
+		int8_t j;
+		
 		for (i = 0; i< maxLen; i ++){
 		  c = UART5_read();
-			if( c == '\n' || c == '\r') break;
-			else LCD_data(c);  //str[i] = c;
-			
+			b[i]=c;
+		
+		for(j=0;j<80;j++ ){
+		  LCD_data(b[i]);
 		}
 	}
-	
+}
 	void printStr(char *str){	
 	   while(*str){
 		   UART5_write(*str);
