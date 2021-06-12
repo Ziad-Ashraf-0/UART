@@ -64,20 +64,55 @@ void LCD_init(void);
 		UART5_DR_R = c;
 	}
 		
-	void getCommand(char *str, uint8_t maxLen){
-		char b[127];
-		int8_t i;
-		int8_t j;
+	void getCommand(){
+		char b[450];
+		char c;
+		int i;
+		int j;
 		
-		for (i = 0; i< maxLen; i ++){
-		  b[i]=UART5_read();
+		
+		for (i = 0; i< 450; i ++){
+			c= UART5_read();
+		  b[i]=c;
 			
 		
 		
 	}
-		for(j=0;j<127;j++){
+		for(j=0;j<450;j++){
 		  if (b[j]=='G'&&b[j+1]=='G'&&b[j+2]=='A'){
-			     LCD_data(b[j+15]);
+				
+			
+				
+				
+				
+			     
+		LCD_data(b[j+14]);
+				LCD_data(b[j+15]);
+				LCD_data(b[j+16]);
+				LCD_data(b[j+17]);
+				LCD_data(b[j+18]);
+				LCD_data(b[j+19]);
+				LCD_data(b[j+20]);
+				LCD_data(b[j+21]);
+				LCD_data(b[j+22]);
+				LCD_data(b[j+23]);
+				LCD_data(b[j+24]);
+				LCD_data(b[j+25]);
+				LCD_command(0xC0);
+				LCD_data(b[j+27]);
+				LCD_data(b[j+28]);
+				LCD_data(b[j+29]);
+				LCD_data(b[j+30]);
+				LCD_data(b[j+31]);
+				LCD_data(b[j+32]);
+				LCD_data(b[j+33]);
+				LCD_data(b[j+34]);
+				LCD_data(b[j+35]);
+				LCD_data(b[j+36]);
+				LCD_data(b[j+37]);
+				LCD_data(b[j+38]);
+				LCD_data(b[j+39]); 
+				LCD_data(j);
 			}
 		}
 }
@@ -93,7 +128,7 @@ void LCD_init(void);
 
 
 int main(){
-	char command [BUFFER_LENGTH] = {0};
+	
 	initPORTF();
 	LCD_init();
 	UART5Init();
@@ -104,10 +139,9 @@ int main(){
 		    GPIO_PORTF_DATA_R = GREEN;			
 		    LCD_command(1); /* clear display */
 		    LCD_command(0x80); /* lcd cursor location */
-		    delayMs(50);
-		    
-			  getCommand(command , BUFFER_LENGTH); 
-	//	}		
+		    delayMs(1000);
+			  getCommand(); 
+	//}		
 	}
 
 void LCD_init(void){
